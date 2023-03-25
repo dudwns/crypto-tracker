@@ -30,7 +30,8 @@ const Coin = styled.li`
   border: 1px solid white;
   border-radius: 15px;
   margin-bottom: 15px;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   transition: background-color 0.2s linear;
   a {
     display: flex;
@@ -66,7 +67,8 @@ const ThemeBtn = styled.button`
   height: 40px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   background-color: ${(props) => props.theme.bgColor};
   position: absolute;
   right: 30px;
@@ -107,10 +109,10 @@ function Coins() {
     <Container>
       <Helmet>
         {/*여기에 작성하면 문서의 head로 감 */}
-        <title>암호화폐</title>
+        <title>Crypto Tracker</title>
       </Helmet>
       <Header>
-        <Title>암호화폐</Title>
+        <Title>Crypto Tracker</Title>
         <ThemeBtn onClick={toggleDarkAtom}>
           {isDark ? (
             <img src={process.env.PUBLIC_URL + "/images/sun.svg"} alt="Light mode" />
@@ -131,7 +133,9 @@ function Coins() {
                   state: { name: coin.name },
                 }}
               >
-                <Img src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
+                <Img
+                  src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                />
                 {coin.name} &rarr;
               </Link>
             </Coin>

@@ -45,7 +45,8 @@ const Overview = styled.div`
   border-radius: 10px;
   border: 1px solid white;
   margin: 20px 0;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 `;
 
 const OverviewItem = styled.div`
@@ -69,7 +70,8 @@ const Description = styled.p`
   line-height: 25px;
   background-color: ${(props) => props.theme.cardBgColor};
   transition: background-color 0.2s linear;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 `;
 
 const Tabs = styled.div`
@@ -88,7 +90,8 @@ const Tab = styled.span<{ isActive: boolean }>`
   border-radius: 10px;
   color: ${(props) => (props.isActive ? props.theme.accentColor : props.theme.textColor)};
   a {
-    border-bottom: 1px solid ${(props) => (props.isActive ? props.theme.accentColor : props.theme.textColor)};
+    border-bottom: 1px solid
+      ${(props) => (props.isActive ? props.theme.accentColor : props.theme.textColor)};
     padding-bottom: 10px;
     transition: color 0.2s linear;
   }
@@ -111,7 +114,8 @@ const ThemeBtn = styled.button`
   height: 40px;
   border-radius: 20px;
   border: none;
-  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3),
+    0 -6px 16px -6px rgba(0, 0, 0, 0.025);
   background-color: ${(props) => props.theme.bgColor};
   position: absolute;
   right: 30px;
@@ -192,8 +196,14 @@ function Coin() {
   const { state } = useLocation<RouteState>(); //Link의 state값을 받아옴
   const priceMatch = useRouteMatch("/:coinId/price"); //내가 위치한 url이 어디인지 확인, 맞으면 object를 받고 틀리면 null을 리턴
   const chartMatch = useRouteMatch("/:coinId/chart");
-  const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(["info", coinId], () => fetchCoinInfo(coinId));
-  const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(["tickers", coinId], () => fetchCoinTickers(coinId), { refetchInterval: 5000 });
+  const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(["info", coinId], () =>
+    fetchCoinInfo(coinId)
+  );
+  const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
+    ["tickers", coinId],
+    () => fetchCoinTickers(coinId),
+    { refetchInterval: 5000 }
+  );
 
   /* const [loading, setLoading] = useState(true);
   const [info, setInfo] = useState<InfoData>();
